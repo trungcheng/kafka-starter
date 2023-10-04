@@ -1,8 +1,8 @@
 const { Kafka } = require('kafkajs');
 
 const kafka = new Kafka({
-  clientId: 'my-app',
-  brokers: ['kafka1:9092', 'kafka2:9092']
+  clientId: 'my-consumer',
+  brokers: ['localhost:9092']
 })
 
 const consumer = kafka.consumer({ groupId: 'test-group' });
@@ -15,6 +15,7 @@ const run = async () => {
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
       console.log({
+        topic,
         partition,
         offset: message.offset,
         value: message.value.toString(),
