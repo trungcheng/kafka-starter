@@ -18,39 +18,39 @@
 # Commands:
 
 1. Start ZooKeeper: 
-bin/zookeeper-server-start.sh config/zookeeper.properties
+```bin/zookeeper-server-start.sh config/zookeeper.properties```
 
 2. Start Kafka Broker: 
-bin/kafka-server-start.sh config/server.properties
+```bin/kafka-server-start.sh config/server.properties```
 
 3. Get list of the active broker ids: 
-bin/zookeeper-shell.sh localhost:2181 ls /brokers/ids
+```bin/zookeeper-shell.sh localhost:2181 ls /brokers/ids```
 
 4. Get information the broker by id: 
-bin/zookeeper-shell.sh localhost:2181 get /brokers/ids/0
+```bin/zookeeper-shell.sh localhost:2181 get /brokers/ids/0```
 
 5. Create topic: 
-bin/kafka-topics.sh --create --topic ${topic_name} --bootstrap-server localhost:9092
+```bin/kafka-topics.sh --create --topic ${topic_name} --bootstrap-server localhost:9092```
 
 6. Describe topic: 
-bin/kafka-topics.sh --describe --topic ${topic_name} --bootstrap-server localhost:9092
+```bin/kafka-topics.sh --describe --topic ${topic_name} --bootstrap-server localhost:9092```
 
 7. Send message by producer: 
-bin/kafka-console-producer.sh --topic ${topic_name} --bootstrap-server localhost:9092
+```bin/kafka-console-producer.sh --topic ${topic_name} --bootstrap-server localhost:9092```
 
 8. Read message by consumer: 
-bin/kafka-console-consumer.sh --topic ${topic_name} --from-beginning --bootstrap-server localhost:9092
+```bin/kafka-console-consumer.sh --topic ${topic_name} --from-beginning --bootstrap-server localhost:9092```
 
 9. Create topic with partition number: 
-bin/kafka-topics.sh --create --zookeeper localhost:9092 --replication-factor 1 --partitions 3 --topic ${topic_name}
+```bin/kafka-topics.sh --create --zookeeper localhost:9092 --replication-factor 1 --partitions 3 --topic ${topic_name}```
 
 10. Describe offset in Kafka topic and create consumer group: 
-bin/kafka-console-consumer.sh --topic ${topic_name} --bootstrap-server localhost:9092 --from-beginning --group ${group_name}
+```bin/kafka-console-consumer.sh --topic ${topic_name} --bootstrap-server localhost:9092 --from-beginning --group ${group_name}```
 
 11. Show topic and offset of partition: 
-bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group ${group_name} --describe
+```bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group ${group_name} --describe```
 
 12. Read message in the partition by offset: 
-bin/kafka-console-consumer.sh --topic ${topic_name} --bootstrap-server localhost:9092 --partition 1 --offset 2
+```bin/kafka-console-consumer.sh --topic ${topic_name} --bootstrap-server localhost:9092 --partition 1 --offset 2```
 
 # Document: https://kafka.apache.org/quickstart
